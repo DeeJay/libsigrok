@@ -145,6 +145,15 @@ AC_ARG_ENABLE(demo, AC_HELP_STRING([--enable-demo],
 	[HW_DEMO="$enableval"],
 	[HW_DEMO=$HW_ENABLED_DEFAULT])
 
+AC_ARG_ENABLE(dpscopese, AC_HELP_STRING([--enable-dpscopese],
+	[enable DPScopeSE support [default=yes]]),
+	[HW_DPSCOPESE="$enableval"],
+	[HW_DPSCOPESE=$HW_ENABLED_DEFAULT])
+AM_CONDITIONAL(HW_DPSCOPESE, test x$HW_DPSCOPESE = xyes)
+if test "x$HW_DPSCOPESE" = "xyes"; then
+	AC_DEFINE(HAVE_HW_DPSCOPESE, 1, [DPScopeSE support])
+fi
+
 AC_ARG_ENABLE(fluke-dmm, AC_HELP_STRING([--enable-fluke-dmm],
 	[enable Fluke DMM support [default=yes]]),
 	[HW_FLUKE_DMM="$enableval"],
@@ -636,6 +645,7 @@ echo "  - chronovu-la..................... $HW_CHRONOVU_LA"
 echo "  - colead-slm...................... $HW_COLEAD_SLM"
 echo "  - conrad-digi-35-cpu.............. $HW_CONRAD_DIGI_35_CPU"
 echo "  - demo............................ $HW_DEMO"
+echo "  - dpscopese....................... $HW_DPSCOPESE"
 echo "  - fluke-dmm....................... $HW_FLUKE_DMM"
 echo "  - fx2lafw......................... $HW_FX2LAFW"
 echo "  - gmc-mh-1x-2x.................... $HW_GMC_MH_1X_2X"

@@ -170,6 +170,12 @@ if HW_DEMO
 libsigrok_la_SOURCES += \
 	hardware/demo/demo.c
 endif
+if HW_DPSCOPESE
+libsigrok_la_SOURCES += \
+	hardware/dpscopese/protocol.h \
+	hardware/dpscopese/protocol.c \
+	hardware/dpscopese/api.c
+endif
 if HW_FLUKE_DMM
 libsigrok_la_SOURCES += \
 	hardware/fluke-dmm/fluke-dmm.h \
